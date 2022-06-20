@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {Button, Card, CardContent, Typography} from '@mui/material'
+import {Button, Card, CardContent, Paper, Typography} from '@mui/material'
 import {useEffect} from 'react'
 import Image from 'next/image'
 
@@ -47,48 +47,28 @@ export default function SignInWithWallet({setWalletAddress}) {
 	}, [])
 
 	return (
-	  <div>
-		  <Card>
-			  {/*My metamask button*/}
-			  <CardContent
-				sx={{
-				  height: "150px",
-				  width: "600px",
-				  cursor: "pointer",
-					':hover': {
-					  background: "grey",
-					  opacity: "0.3",
-					}
-			  	}}
-				onClick={() => connectWalletHandler()}
+	  <div style={{display: 'flex', justifyContent: 'center'}}>
+		  {/*My metamask button*/}
+		  <Button
+			style={{display: 'flex', justifyContent: 'center', marginTop: "100px"}}
+			onClick={() => connectWalletHandler()}
+		  >
+			  {/*My metamask image*/}
+			  <Image
+				alt={''}
+				src={"/images/metamask.svg"}
+				width={60}
+				height={60}
+			  />
+			  <Typography
+				variant="h3"
+				align="center"
+				sx={{ fontWeight: 600, fontSize: '1.85rem', color: "black" }}
+				gutterBottom
 			  >
-				  <Typography
-					variant="h3"
-					align="center"
-					sx={{ fontWeight: 600, fontSize: '1.85rem', color: "black" }}
-					gutterBottom
-				  >
-					  Sign in with the Starton portal
-				  </Typography>
-				  <div style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
-					  {/*My metamask image*/}
-					  <Image
-						alt={''}
-						src={"/images/metamask.svg"}
-						width={60}
-						height={60}
-					  />
-					  <Typography
-						variant="h5"
-						align="center"
-						style={{marginLeft: "30px", color: "black", marginTop: "30px"}}
-						gutterBottom
-					  >
-						Metamask
-					  </Typography>
-				  </div>
-			  </CardContent>
-		  </Card>
+				  Sign in with Metamask
+			  </Typography>
+		  </Button>
 	  </div>
 	)
 }
