@@ -1,6 +1,7 @@
 import * as React from 'react'
 import {Button, Card, CardContent, Typography} from '@mui/material'
 import {useEffect} from 'react'
+import Image from 'next/image'
 
 export default function SignInWithWallet({setWalletAddress}) {
 
@@ -48,38 +49,44 @@ export default function SignInWithWallet({setWalletAddress}) {
 	return (
 	  <div>
 		  <Card>
-			  <CardContent sx={{padding: '44px', alignItems: "center", justifyContent: 'center'}}>
+			  {/*My metamask button*/}
+			  <CardContent
+				sx={{
+				  height: "150px",
+				  width: "600px",
+				  cursor: "pointer",
+					':hover': {
+					  background: "grey",
+					  opacity: "0.3",
+					}
+			  	}}
+				onClick={() => connectWalletHandler()}
+			  >
 				  <Typography
 					variant="h3"
 					align="center"
-					sx={{ fontWeight: 600, fontSize: '1.85rem' }}
+					sx={{ fontWeight: 600, fontSize: '1.85rem', color: "black" }}
 					gutterBottom
 				  >
-					Sign in with the Starton portal
+					  Sign in with the Starton portal
 				  </Typography>
-
-				  {/*My metamask button*/}
-				  <Button
-					sx={{marginTop: "30px", width: "500px"}}
-					onClick={() => connectWalletHandler()}
-				  >
+				  <div style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
 					  {/*My metamask image*/}
-					  <img
+					  <Image
 						alt={''}
-						src={"images/metamask.svg"}
+						src={"/images/metamask.svg"}
 						width={60}
 						height={60}
 					  />
 					  <Typography
 						variant="h5"
 						align="center"
-						style={{marginLeft: "30px", color: "black"}}
+						style={{marginLeft: "30px", color: "black", marginTop: "30px"}}
 						gutterBottom
 					  >
-					  	Metamask
+						Metamask
 					  </Typography>
-
-				  </Button>
+				  </div>
 			  </CardContent>
 		  </Card>
 	  </div>
