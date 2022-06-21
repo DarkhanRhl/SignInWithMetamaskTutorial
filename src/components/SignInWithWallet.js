@@ -63,7 +63,7 @@ export default function SignInWithWallet({setWalletAddress}) {
 			  <Typography
 				variant="h3"
 				align="center"
-				sx={{ fontWeight: 600, fontSize: '1.85rem', color: "black" }}
+				sx={{ fontWeight: 600, fontSize: '1.85rem', color: "black", marginLeft: "15px" }}
 				gutterBottom
 			  >
 				  Sign in with Metamask
